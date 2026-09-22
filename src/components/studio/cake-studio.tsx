@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArrowLeft, ArrowRight, LayoutGrid, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -40,7 +40,7 @@ export function CakeStudio() {
   const selectedFor = (stepId: string) => (STEP_KEY[stepId] ? selection[STEP_KEY[stepId]] : "");
 
   const canContinue =
-    isReview || step.kind === "message" ? true : Boolean(selectedFor(step.id));
+    isReview || step.kind === "message" || step.kind === "upload" ? true : Boolean(selectedFor(step.id));
 
   function goNext() {
     if (isReview) return;
@@ -119,24 +119,20 @@ export function CakeStudio() {
             ) : (
               <div className="space-y-8">
                 {step.kind === "message" ? (
-                  <div className="space-y-10">
-                    <MessageStep />
-                    <div className="rounded-2xl bg-sand/60 p-5">
-                      <div className="flex items-center gap-2 text-sm font-semibold text-cocoa-800">
-                        <LayoutGrid className="size-4 text-brand-500" aria-hidden />
-                        Extra: add a reference image
-                      </div>
-                      <div className="mt-4">
-                        <UploadStep />
-                      </div>
-                    </div>
+                  <MessageStep />
+                ) : step.kind === "upload" ? (
+                  <div className="space-y-4">
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      Got a photo of a cake you love? Upload it as your <strong>reference design</strong> — we&apos;ll
+                      match the look as closely as possible.
+                    </p>
+                    <UploadStep />
                   </div>
                 ) : (
                   <OptionGrid
                     options={stepOptions(step.id)}
                     selected={selectedFor(step.id) || undefined}
                     onSelect={(id) => selectOption(STEP_KEY[step.id], id)}
-                    mode={step.id === "design" ? "image" : "default"}
                   />
                 )}
               </div>

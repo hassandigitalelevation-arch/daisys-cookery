@@ -24,7 +24,6 @@ const rows: { stepId: string; label: string }[] = [
   { stepId: "flavor", label: "Flavor" },
   { stepId: "cream", label: "Cream / filling" },
   { stepId: "fruitFilling", label: "Fruit filling" },
-  { stepId: "design", label: "Theme" },
 ];
 
 export function SummaryRail() {

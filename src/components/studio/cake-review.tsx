@@ -48,7 +48,8 @@ export function CakeReview() {
     ["Cream / filling", optionLabel("cream", selection.cream)],
     ["Fruit filling", optionLabel("fruitFilling", selection.fruitFilling)],
     ["Shape", optionLabel("shape", selection.shape)],
-    ["Design", optionLabel("design", selection.design)],
+    ["Message", selection.message || "—"],
+    ["Message color", messageStyleLabel(selection.messageStyle)],
   ];
 
   return (
@@ -66,7 +67,15 @@ export function CakeReview() {
           </p>
         </div>
         <div className="relative overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-blush to-sand shadow-hero">
-          {design?.image ? (
+          {selection.referenceImage ? (
+            <Image
+              src={selection.referenceImage.dataUrl}
+              alt="Your uploaded design reference"
+              width={640}
+              height={640}
+              className="aspect-square w-full object-cover"
+            />
+          ) : design?.image ? (
             <Image
               src={design.image}
               alt={`Design ${design.id}`}

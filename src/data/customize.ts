@@ -17,7 +17,7 @@ export type StudioOption = {
   note?: string;
 };
 
-export type StudioStepKind = "singleselect" | "message";
+export type StudioStepKind = "singleselect" | "message" | "upload";
 
 export type StudioStep = {
   id: string;
@@ -140,10 +140,10 @@ export const studioConfig = {
       options: null,
     },
     {
-      id: "design",
-      title: "Choose a preset theme (optional)",
-      subtitle: "Pick a ready-made look, or skip to keep your custom design.",
-      kind: "singleselect",
+      id: "upload",
+      title: "Upload your cake design",
+      subtitle: "Add a photo of the design you love — we'll match it as closely as possible.",
+      kind: "upload",
       options: null,
     },
     {
