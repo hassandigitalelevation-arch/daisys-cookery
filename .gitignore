@@ -1,0 +1,22 @@
+# ------------------------------------------------------------------
+# Deploy-only .gitignore
+# Only files needed to build & run the live site are committed to
+# GitHub. Everything else (build output, deps, docs, archive folder,
+# dev artifacts) is ignored.
+# -------------------------------------------------------------------
+
+# Ignore everything at the project root by default...
+/*
+
+# ...then keep only what the live site needs.
+!.gitignore
+!next.config.ts
+!next-env.d.ts
+!package.json
+!package-lock.json
+!postcss.config.mjs
+!tsconfig.json
+!eslint.config.mjs
+!README.md
+!src
+!public
