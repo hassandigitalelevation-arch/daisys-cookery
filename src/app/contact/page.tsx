@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
-import { FacebookIcon } from "@/components/ui/brand-icons";
+import { FacebookIcon, InstagramIcon } from "@/components/ui/brand-icons";
 
 import { PageHero } from "@/components/site/page-hero";
 import { EnquiryForm } from "@/components/site/enquiry-form";
@@ -39,6 +39,13 @@ export default function ContactPage() {
       lines: ["We reply fastest on our page"],
       note: "",
       href: site.social.facebook,
+    },
+    {
+      icon: InstagramIcon,
+      title: "Instagram",
+      lines: ["@daisyscookery.ctg"],
+      note: "New designs, reels & celebration posts.",
+      href: site.social.instagram,
     },
   ];
 
@@ -108,18 +115,29 @@ export default function ContactPage() {
             <div>
               <h2 className="font-display text-2xl font-semibold">Fastest way to reach us</h2>
               <p className="mt-2 max-w-md text-sm text-cocoa-200">
-                New designs and quick replies happen on our Facebook page.
+                New designs and quick replies happen on our Facebook &amp; Instagram.
               </p>
             </div>
-            <a
-              href={site.social.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-cocoa-900 transition-colors hover:bg-brand-50"
-            >
-              <MessageCircle className="size-4" aria-hidden />
-              Message us on Facebook
-            </a>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={site.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-cocoa-900 transition-colors hover:bg-brand-50"
+              >
+                <MessageCircle className="size-4" aria-hidden />
+                Facebook
+              </a>
+              <a
+                href={site.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-brand-400 hover:text-brand-300"
+              >
+                <InstagramIcon className="size-4" />
+                Instagram
+              </a>
+            </div>
           </div>
         </Reveal>
       </section>

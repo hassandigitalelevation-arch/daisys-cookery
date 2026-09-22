@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Phone, Clock } from "lucide-react";
-import { FacebookIcon } from "@/components/ui/brand-icons";
+import { FacebookIcon, InstagramIcon } from "@/components/ui/brand-icons";
 
 import { Logo } from "@/components/site/logo";
 import { site } from "@/data/site";
@@ -31,15 +31,26 @@ export function SiteFooter() {
             </span>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-cocoa-300">{site.tagline}</p>
-          <a
-            href={site.social.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-brand-400 hover:text-brand-300"
-          >
-            <FacebookIcon className="size-4" />
-            Follow us on Facebook
-          </a>
+          <div className="flex flex-wrap gap-2.5">
+            <a
+              href={site.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-brand-400 hover:text-brand-300"
+            >
+              <FacebookIcon className="size-4" />
+              Follow us on Facebook
+            </a>
+            <a
+              href={site.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-brand-400 hover:text-brand-300"
+            >
+              <InstagramIcon className="size-4" />
+              Instagram
+            </a>
+          </div>
         </div>
 
         <div>
